@@ -1,22 +1,31 @@
-
 {
   "dashboard": {
     "id": null,
-    "uid": "healthcare-dashboard",
-    "title": "Healthcare Streaming Dashboard",
+    "uid": "patient-vitals-dashboard",
+    "title": "Patient Vitals Monitoring",
     "timezone": "browser",
+    "schemaVersion": 38,
+    "version": 1,
+    "refresh": "10s",
     "panels": [
       {
-        "type": "graph",
-        "title": "Heart Rate (bpm)",
+        "type": "timeseries",
+        "title": "Heart Rate (BPM)",
+        "datasource": "your-data-source",
         "targets": [
           {
             "refId": "A",
-            "expr": "heart_rate",  // Change to actual metric or field
-            "format": "time_series"
+            "expr": "heart_rate"
           }
         ],
-        "datasource": "your-data-source",
+        "fieldConfig": {
+          "defaults": {
+            "unit": "beatsperminute",
+            "color": {
+              "mode": "palette-classic"
+            }
+          }
+        },
         "gridPos": {
           "x": 0,
           "y": 0,
@@ -25,26 +34,56 @@
         }
       },
       {
-        "type": "graph",
+        "type": "timeseries",
         "title": "Oxygen Level (%)",
+        "datasource": "your-data-source",
         "targets": [
           {
             "refId": "B",
-            "expr": "oxygen_level",  // Change to actual metric or field
-            "format": "time_series"
+            "expr": "oxygen_level"
           }
         ],
-        "datasource": "your-data-source",
+        "fieldConfig": {
+          "defaults": {
+            "unit": "percent",
+            "color": {
+              "mode": "palette-classic"
+            }
+          }
+        },
         "gridPos": {
           "x": 12,
           "y": 0,
           "w": 12,
           "h": 8
         }
+      },
+      {
+        "type": "timeseries",
+        "title": "Blood Pressure",
+        "datasource": "your-data-source",
+        "targets": [
+          {
+            "refId": "C",
+            "expr": "blood_pressure"
+          }
+        ],
+        "fieldConfig": {
+          "defaults": {
+            "unit": "pressuremmhg",
+            "color": {
+              "mode": "palette-classic"
+            }
+          }
+        },
+        "gridPos": {
+          "x": 0,
+          "y": 8,
+          "w": 24,
+          "h": 8
+        }
       }
-    ],
-    "schemaVersion": 30,
-    "version": 1
+    ]
   },
-  "overwrite": false
+  "overwrite": true
 }
