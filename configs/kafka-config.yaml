@@ -1,1 +1,10 @@
 
+kafka:
+  bootstrap_servers: "localhost:9092"
+  topic: "patient_vitals"
+  client_id: "healthcare-streaming-client"
+  acks: "all"
+  retries: 3
+  linger_ms: 5
+  key_serializer: "org.apache.kafka.common.serialization.StringSerializer"
+  value_serializer: "org.apache.kafka.common.serialization.StringSerializer"
