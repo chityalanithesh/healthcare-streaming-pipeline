@@ -1,1 +1,50 @@
 
+{
+  "dashboard": {
+    "id": null,
+    "uid": "healthcare-dashboard",
+    "title": "Healthcare Streaming Dashboard",
+    "timezone": "browser",
+    "panels": [
+      {
+        "type": "graph",
+        "title": "Heart Rate (bpm)",
+        "targets": [
+          {
+            "refId": "A",
+            "expr": "heart_rate",  // Change to actual metric or field
+            "format": "time_series"
+          }
+        ],
+        "datasource": "your-data-source",
+        "gridPos": {
+          "x": 0,
+          "y": 0,
+          "w": 12,
+          "h": 8
+        }
+      },
+      {
+        "type": "graph",
+        "title": "Oxygen Level (%)",
+        "targets": [
+          {
+            "refId": "B",
+            "expr": "oxygen_level",  // Change to actual metric or field
+            "format": "time_series"
+          }
+        ],
+        "datasource": "your-data-source",
+        "gridPos": {
+          "x": 12,
+          "y": 0,
+          "w": 12,
+          "h": 8
+        }
+      }
+    ],
+    "schemaVersion": 30,
+    "version": 1
+  },
+  "overwrite": false
+}
